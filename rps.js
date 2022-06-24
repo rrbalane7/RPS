@@ -12,12 +12,15 @@ const playerPick = document.querySelector(".player-played");
 const compPick = document.querySelector(".computer-played");
 const versus = document.querySelector(".versus-pic");
 const startG = document.querySelectorAll(".start")
+const rock = document.querySelector("#rock")
+const paper = document.querySelector("#paper")
+const scissors = document.querySelector("#scissors")
 
 //Array of items to be played by the computer through random pick
 const gunsArray = ["rock", "paper", "scissors"]
 
 //adding click event in buttons and weaponOfChoice & calling the main functions
-buttons.forEach((button) => {
+buttons.forEach((button) => {  
     button.addEventListener("click", () => {
         if(compPick.classList.contains("rock") || compPick.classList.contains("paper") ||
          compPick.classList.contains("scissors")) {
@@ -28,12 +31,16 @@ buttons.forEach((button) => {
             playerPick.classList.remove("rock","paper","scissors");
         };
         if (versus.lastElementChild.tagName === "DIV") {
-            versus.removeChild(versus.lastElementChild);
-            
+            versus.removeChild(versus.lastElementChild);           
         };
+        rock.classList.remove("underline-text");
+        paper.classList.remove("underline-text");
+        scissors.classList.remove("underline-text");
         const img = button.querySelector("img");
         playerPlays = img.alt;
-        setTimeout(playerAddClass, 2000)
+        const underLine = img.closest(".button");
+        underLine.classList.add("underline-text") ;
+        setTimeout(playerAddClass, 2000);
         compPlays = gunsArray[Math.floor(Math.random() * gunsArray.length)];
         setTimeout(compAddClass, 2000)
         console.log("Player: " + playerPlays); //for checking only, optional
@@ -41,7 +48,7 @@ buttons.forEach((button) => {
         playRound(playerPlays,compPlays);
         setTimeout(scoreUpdateP, 3000);
         setTimeout(scoreUpdateC, 3000);
-        if(playerScore === 5 || compScore ===5){
+        if(playerScore === 5 || compScore === 5){
             winner()
         };
     })
@@ -71,7 +78,6 @@ function playRound(playerPlayed,compPlayed){
         const greet = document.createTextNode("Its a TIE!");
         versus.innerHTML += `<div class="text-cont"></div>`;
         const newDiv = document.querySelector(".text-cont");
-        newDiv.style.backgroundColor = "goldenrod"; 
         setTimeout(() => newDiv.appendChild(greet),2000);
      } else {
         compScore++;

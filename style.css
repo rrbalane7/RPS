@@ -97,7 +97,6 @@ h4{
 }
 
 
-
 footer{
     text-align: center;
     background-color: rgba(12, 55, 130, 0.8);
@@ -106,6 +105,16 @@ footer{
     justify-content: center;
     align-items: flex-end;
     color:#eee;
+}
+
+/* Added div container in JS code */
+.text-cont{
+    background-color: rgba(218, 165, 32,0.7);
+    border-radius: 5px;
+    width: 170px;
+    text-align: center;
+    margin: 0 auto;
+    margin-top:1em;
 }
 
 /* Guns Pic when chosen */
@@ -129,6 +138,10 @@ footer{
     height:400px;
     width:400px;
 
+}
+
+.underline-text{
+    text-decoration: underline;
 }
 
 /* START SCREEN & GAMEOVER RESET SCREEN */
