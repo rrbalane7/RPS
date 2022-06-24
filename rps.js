@@ -27,6 +27,10 @@ buttons.forEach((button) => {
          playerPick.classList.contains("scissors")){
             playerPick.classList.remove("rock","paper","scissors");
         };
+        if (versus.lastElementChild.tagName === "DIV") {
+            versus.removeChild(versus.lastElementChild);
+            
+        };
         const img = button.querySelector("img");
         playerPlays = img.alt;
         setTimeout(playerAddClass, 2000)
@@ -64,6 +68,11 @@ function playRound(playerPlayed,compPlayed){
         playerScore++;
      } else if(playerPlayed === compPlayed) {
         console.log("tie");
+        const greet = document.createTextNode("Its a TIE!");
+        versus.innerHTML += `<div class="text-cont"></div>`;
+        const newDiv = document.querySelector(".text-cont");
+        newDiv.style.backgroundColor = "goldenrod"; 
+        setTimeout(() => newDiv.appendChild(greet),2000);
      } else {
         compScore++;
      }

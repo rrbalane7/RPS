@@ -4,7 +4,7 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: Short Stack;
+    font-family: "Short Stack", sans-serif;
 }
 
 section{
@@ -90,6 +90,13 @@ h4{
 .button img:hover{
     width:90px;
 }
+
+.button img:active{
+    width:0;
+    
+}
+
+
 
 footer{
     text-align: center;
